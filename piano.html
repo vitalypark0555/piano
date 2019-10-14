@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css">
+            <title>
+                Simple Piano
+            </title>
+        </link>
+    </head>
+    <body>
+        <ul class="keys">
+            <li class="white b key" data-key="74">
+            </li>
+            <li class="black as key" data-key="85">
+            </li>
+            <li class="white a key" data-key="72">
+            </li>
+            <li class="black gs key" data-key="89">
+            </li>
+            <li class="white g key" data-key="71">
+            </li>
+            <li class="black fs key" data-key="84">
+            </li>
+            <li class="white f key" data-key="70">
+            </li>
+            <li class="white e key" data-key="68">
+            </li>
+            <li class="black ds key" data-key="69">
+            </li>
+            <li class="white d key" data-key="83">
+            </li>
+            <li class="black cs key" data-key="87">
+            </li>
+            <li class="white c key" data-key="65">
+            </li>
+        </ul>
+        <audio data-key="65" src="piano/C5.wav">
+        </audio>
+        <audio data-key="87" src="piano/Db5.wav">
+        </audio>
+        <audio data-key="83" src="piano/D5.wav">
+        </audio>
+        <audio data-key="69" src="piano/Eb5.wav">
+        </audio>
+        <audio data-key="68" src="piano/E5.wav">
+        </audio>
+        <audio data-key="70" src="piano/F5.wav">
+        </audio>
+        <audio data-key="84" src="piano/Gb5.wav">
+        </audio>
+        <audio data-key="71" src="piano/G5.wav">
+        </audio>
+        <audio data-key="89" src="piano/Ab5.wav">
+        </audio>
+        <audio data-key="72" src="piano/A5.wav">
+        </audio>
+        <audio data-key="85" src="piano/Bb5.wav">
+        </audio>
+        <audio data-key="74" src="piano/B5.wav">
+        </audio>
+        <script>
+            document.addEventListener('click', function (event) {
+
+
+				if (!event.target.matches('.key')) 
+					return;
+
+				event.preventDefault();
+
+				keyCode = event.target.getAttribute('data-key');
+				const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+
+				if(!audio)
+			       	return;
+			        		
+				audio.currentTime = 0;
+				audio.play();
+			}, false);
+        </script>
+    </body>
+</html>
